@@ -21,7 +21,7 @@ export const signup = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const newUser = new User({
+    const newUser = await User.create({
       fullName,
       email,
       password: hashedPassword,
@@ -29,10 +29,10 @@ export const signup = async (req, res) => {
 
     if (newUser) {
       // generate jwt token here
-      generateToken(newUser._id, res);
-      await newUser.save();
+      const token = generateToken(newUser._id, res);
 
       res.status(201).json({
+        token,
         _id: newUser._id,
         fullName: newUser.fullName,
         email: newUser.email,
