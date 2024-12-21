@@ -7,6 +7,7 @@ Pinokio is a real-time chat application designed to enable seamless communicatio
 - Real-time messaging for instant communication.
 - Secure user authentication with login and registration functionality.
 - Responsive design for an optimal experience on all devices.
+- See who is online using the Show online feature in the chatbox.
 
 ## Technologies Used
 
